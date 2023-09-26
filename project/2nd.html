@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+            .mainContainer{
+               text-align: center;
+               display: flex;
+               flex-direction:column;
+               align-items: center;
+               justify-content: center;
+            }
+            .box{
+               height: 500px; 
+               width: 500px;
+               padding: 25px;
+               margin:10px;
+               text-align: center;
+               border: 2px solid white;
+               box-shadow: -1px 2px 15px 1px;
+               margin-bottom: auto;
+               
+
+            }
+            img{
+                width:300px;
+                height: 300px;
+                text-align: center;
+                border-radius: 150px;
+            }
+            #line{
+                height: 2px;
+                width: 250px;
+                background-color: blue;
+                align-items: center;
+                text-align: center;
+            }
+            #next{
+                background-color:aqua;
+            }
+            #previous{
+                background-color: aqua;
+                 margin-right: 5px;
+                margin-left:5px ;
+            }
+            #random{
+                background-color: aqua;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="d1"></div>
+        <script type="text/babel">
+            var reviews=[
+                {
+                    src:"https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+                    name:"Anitha Rongali",
+                    work:"Frontend Developer",
+                    review:"A front-end developer builds the front-end portion of websites and web applications—the part users see and interact with. A front-end developer creates websites and applications using web languages such as HTML, CSS, and JavaScript that allow."
+                },
+                {
+                    src:"https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg",
+                    name:"Supraja",
+                    work:"Frontend Developer",
+                    review:"A front-end developer builds the front-end portion of websites and web applications—the part users see and interact with. A front-end developer creates websites and applications using web languages such as HTML, CSS, and JavaScript that allow"
+                },
+                {
+                    src:"https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+                    name:"Susmitha",
+                    work:"Frontend Developer",
+                    review:"A front-end developer builds the front-end portion of websites and web applications—the part users see and interact with. A front-end developer creates websites and applications using web languages such as HTML, CSS, and JavaScript that allow"
+                },
+                {
+                    src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsJSFvewBphCd0-gaP5jDukdNiNsEaaiOnYA&usqp=CAU",
+                    name:"Anitha Rongali",
+                    work:"Frontend Developer",
+                    review:"A front-end developer builds the front-end portion of websites and web applications—the part users see and interact with. A front-end developer creates websites and applications using web languages such as HTML, CSS, and JavaScript that allow"
+                },
+                {
+                    src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVGHL9r9OucwArH8yO3rEDPryG4V3tSCBw-w&usqp=CAU",
+                    name:"Anitha Rongali",
+                    work:"Frontend Developer",
+                    review:"A front-end developer builds the front-end portion of websites and web applications—the part users see and interact with. A front-end developer creates websites and applications using web languages such as HTML, CSS, and JavaScript that allow"
+                },
+            ]
+            var i=0;
+           function Reviews(){
+            var [data,setData]=React.useState(reviews[0])
+            var next=function(){
+                console.log("hello")
+                if(i < reviews.length-1){
+                    i++;
+                }
+                else{
+                    i=0;
+                }
+                setData(reviews[i]);
+                }
+                var previous=function(){
+                    console.log("hello")
+                    if(i>0){
+                        i--;
+                    }else{
+                        i=reviews.length-1;
+                    }
+                    setData(reviews[i]);
+                }
+                function random(){
+                      var randomIndex=Math.floor((Math.random()*reviews.length))
+                      setData(reviews[randomIndex]);
+                      i=randomIndex
+                }
+            return(
+                <div class="mainContainer">
+                     <h1>Edupoly Reviews</h1>
+                      <div id ="line"></div>
+                     
+                    <div class="box">
+                        <img src={data.src}/>
+                        <h2>{data.name}</h2>
+                        <h3 style={{color:"blue"}}>{data.work}</h3>
+                        <p>{data.review}</p>
+                        <button onClick={()=>{next()}} id="next" >Next</button>
+                        <button onClick={()=>{previous()}} id="previous">Previous</button>
+                        <button onClick={()=>{random()}} id="random">Random</button>
+                    </div>
+                </div>
+            )
+           }
+           ReactDOM.render(<Reviews/>,document.getElementById("d1"))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        
+       <!-- Display each object properties in React Component -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="d1"></div>
+        <script type="text/babel">
+        var Jk1=function(){
+            var [ob,setOb]=React.useState({
+                firstname:"Praveen",
+                lastname:"gubbala",
+                gender:"Male",
+                age:"36"
+
+            })
+            return(
+                <div>
+                    {
+                      <div style={{ border:"1px solid",padding:"10px",margin:"10px"}}>
+                                <h1>Name:{ob.firstname}</h1>
+                                <h2>Gender:{ob.lastname}</h2>
+                                <i> Age:{ob.age}</i>
+                      </div>
+                    
+                    }
+                  </div> 
+            )
+        }      
+        ReactDOM.render(<Jk1/>,document.getElementById("d1"));
+        </script>
+    </body>
+    
+</html>

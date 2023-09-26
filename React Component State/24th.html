@@ -1,0 +1,36 @@
+<html>
+    <head>
+    <!-- Print array strings ol of uppercase and ul of lowercase strings in React component -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="d1"></div>
+        <script type="text/babel">
+            
+          var Jk1=function(){
+            var[ar,setar]  =React.useState(["anitha","vijju","indhu","sumathi"]) 
+             return(
+                <div>
+                <ol>{
+                    ar.map((a)=>{
+                    return   <li>{a.toLowerCase()}</li>
+                    })
+                 }
+                </ol>
+                <ul>{
+                    ar.map((a)=>{
+                    return   <li>{a.toUpperCase()}</li>
+                    })
+                 }
+                </ul>
+               </div>  
+             )
+          }
+          
+        ReactDOM.render(<Jk1></Jk1>,document.getElementById("d1"));
+        </script>
+    </body>
+    
+</html>
